@@ -6,8 +6,7 @@ class IsingModel:
         self.temperature = temperature
         self.spins = np.random.choice([-1,1], size = (length,length))
 
-    def magnetization(self):
-        #self.magnetization = sum(sum(self.spins))
+    def magnetisation(self):
         return np.sum(self.spins)
 
     def spin_flip(self,i,j):
@@ -16,10 +15,13 @@ class IsingModel:
         else:
             raise IndexError("Índex fora dels límits del reticle")
 
-exemple = IsingModel(3,5.0)
+    def neighbour_sum(self,i,j):
+        right = self.spins[i,(j+1) % self.length]
+        left = self.spins[i,(j-1) % self.length]
+        up = self.spins[(i-1) % self.length,j]
+        down = self.spins[(i+1) % self.length,j]
 
-print(exemple.spins)
+        neighbour_sum = up+down+left+right
 
-exemple.spin_flip(0,0)
+        return neighbour_sum
 
-print(exemple.spins)
