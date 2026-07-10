@@ -10,9 +10,16 @@ class IsingModel:
         #self.magnetization = sum(sum(self.spins))
         return np.sum(self.spins)
 
+    def spin_flip(self,i,j):
+        if (0 <= i <= (self.length - 1)) and (0 <= j <= (self.length - 1)):
+            self.spins[i,j] *= -1
+        else:
+            raise IndexError("Índex fora dels límits del reticle")
 
 exemple = IsingModel(3,5.0)
-M = exemple.magnetization()
 
 print(exemple.spins)
-print(M)
+
+exemple.spin_flip(0,0)
+
+print(exemple.spins)
