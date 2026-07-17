@@ -22,7 +22,3 @@ Projecte personal per implementar el model d'Ising bidimensional utilitzant Mont
 - NumPy
 - Matplotlib
 - Pytest
-
-## Estat
-
-🚧 En desenvolupament

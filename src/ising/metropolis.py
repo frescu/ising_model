@@ -2,6 +2,7 @@ from ising.model import IsingModel
 
 import numpy as np
 import random
+import matplotlib.pyplot as plt
 
 
 class MetropolisSampler:
@@ -27,3 +28,15 @@ class MetropolisSampler:
                 return True
             else:
                 return False
+
+
+
+# exemple = IsingModel(length = 64, temperature = 1.0)
+# sampler = MetropolisSampler(exemple)
+
+# for i in range(100):
+#     for j in range(exemple.length**2):
+#         sampler.step()
+
+# exemple.plot_lattice()  
+# plt.show()

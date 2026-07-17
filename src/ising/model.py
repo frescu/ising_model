@@ -1,4 +1,7 @@
+from doctest import Example
+
 import numpy as np
+import matplotlib.pyplot as plt
 
 class IsingModel:
 
@@ -31,3 +34,22 @@ class IsingModel:
     def delta_energy(self,i,j):
         neighbour_sum = self.neighbour_sum(i,j)
         return (2 * self.J * self.spins[i,j] * neighbour_sum)
+    
+    def energy(self):
+        
+        right = np.roll(self.spins,-1,axis=1)
+        down = np.roll(self.spins,-1,axis=0)
+
+        return -self.J * np.sum(self.spins * (right + down))
+    
+    def plot_lattice(self, ax=None):
+
+        if ax is None:
+            _, ax = plt.subplots()
+
+        ax.imshow(self.spins, cmap="bwr", vmin=-1, vmax=1)
+        ax.set_title("Ising model 2D; " + f"L = {self.length}, T = {self.temperature}") 
+        ax.set_xticks([])
+        ax.set_yticks([])
+        return ax
+
