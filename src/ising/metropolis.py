@@ -1,17 +1,16 @@
 from ising.model import IsingModel
 
 import numpy as np
-import random
 import matplotlib.pyplot as plt
 
 
 class MetropolisSampler:
-    def __init__(self, model: IsingModel):
+    def __init__(self, model: IsingModel, temperature: float):
         self.model = model
-
+        self.temperature = temperature
     def step(self):
-        a = random.randint(0, self.model.length - 1)
-        b = random.randint(0, self.model.length - 1)
+        a = np.random.randint(self.model.length)
+        b = np.random.randint(self.model.length)
 
         dE = self.model.delta_energy(a,b)
 
@@ -20,8 +19,8 @@ class MetropolisSampler:
             return True
 
         else:
-            r = np.exp(- dE / (self.model.K_B * self.model.temperature))
-            aleat = random.random()
+            r = np.exp(- dE / self.temperature)
+            aleat = np.random.random()
 
             if (r >= aleat):
                 self.model.spin_flip(a,b)
@@ -31,8 +30,8 @@ class MetropolisSampler:
 
 
 
-# exemple = IsingModel(length = 64, temperature = 1.0)
-# sampler = MetropolisSampler(exemple)
+# exemple = IsingModel(length = 64)
+# sampler = MetropolisSampler(exemple, temperature = 1.0)
 
 # for i in range(100):
 #     for j in range(exemple.length**2):
