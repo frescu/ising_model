@@ -1,4 +1,3 @@
-from ising.model import IsingModel
 import numpy as np
 
 class Observables:
@@ -24,12 +23,12 @@ class Observables:
     def specific_heat(self):
         return (
             self.squared_energy_mean_spin() 
-            - self.energy_mean_spin()**2
+            - self.energy_mean_spin()**2 * self.L ** 2
             ) / self.T ** 2
     
     def magnetic_susceptibility(self):
         return (
             self.squared_magnetisation_mean_spin() 
-            - self.magnetisation_mean_spin()**2
+            - self.magnetisation_mean_spin()**2 *self.L ** 2
             ) / self.T
         

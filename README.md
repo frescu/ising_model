@@ -1,22 +1,24 @@
-# Activar entorn
+# Activate environment
 C:\Users\Pau\Desktop\model_ising\.venv\Scripts\activate.bat
 
-# Instal·lar llibreries
+# Install libraries
 pip install -r requirements.txt
 
-# Model d'Ising en Python
+# Ising model in Python
 
-Projecte personal per implementar el model d'Ising bidimensional utilitzant Monte Carlo.
+This is a personal project to implement the 2D Ising model. There will be a main .py program which will import different packages that
+follow all the steps necessary to run the simulation: Creating the lattice, running the Metropolis algorithm, obtaining the different
+observables that describe the system, creating graphs that help to find the characteristic temperature, etc.
 
-## Objectius
+## Goals
 
-- Implementar el model d'Ising
-- Estudiar la transició de fase
-- Aprendre Python científic
-- Practicar Git
-- Aplicar Machine Learning
+- Implementing the 2D ising model
+- Study the phase transition
+- Learn scientific Python
+- Practise Git
+- Apply Machine Learning
 
-## Eines
+## Tools
 
 - Python 3.12
 - NumPy

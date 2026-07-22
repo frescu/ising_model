@@ -1,13 +1,12 @@
 from ising.model import IsingModel
 
 import numpy as np
-import matplotlib.pyplot as plt
-
 
 class MetropolisSampler:
     def __init__(self, model: IsingModel, temperature: float):
         self.model = model
         self.temperature = temperature
+
     def step(self):
         a = np.random.randint(self.model.length)
         b = np.random.randint(self.model.length)
@@ -27,6 +26,10 @@ class MetropolisSampler:
                 return True
             else:
                 return False
+            
+    def sweep(self):
+        for _ in range(self.model.length ** 2):
+            self.step()
 
 
 
