@@ -14,3 +14,7 @@ __pycache__/
 # IDE
 .vscode/
 .idea/
+
+#Plots and data
+old_plots/
+old_data/

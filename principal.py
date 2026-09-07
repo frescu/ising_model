@@ -38,6 +38,7 @@ for T in temperatures:
 print("Bucles realitzats per totes les T...")
 
 
+
 with open("data/mean_energy.txt", "w") as outputFile:
     for T, E in zip(temperatures, mean_energy):
         outputFile.write(str(T)+"\t" +str(E) +"\n")
@@ -61,5 +62,12 @@ with open("data/magnetic_susceptibility.txt", "w") as outputFile:
 print("Dades escrites en arxius...")
 
 end = time.time()
+
+with open("data/sim_config.txt", "w") as outputFile:
+    outputFile.write("L = " + str(L) + "\n" + "n_therm = "
+                      + str(n_therm) + "\n" + "n_measur = " + str(n_measur)
+                      + "\n" + "simulation duration = " 
+                      + str((end - start) / 60.0) + " minutes"
+                      )
 
 print("Temps total: "+ str((end - start) / 60.0) + " minuts")
